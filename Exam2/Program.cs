@@ -9,6 +9,7 @@ namespace Exam2
 
         static void Main(string[] args)
         {
+            
 
         }
 
