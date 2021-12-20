@@ -6,24 +6,22 @@ using System.Xml;
 
 namespace Exam2
 {
-    class Task8
+    public class Task8
     {
 
-       
-        public double exchangeRate(string from, string to)
+        public static void RunTask8()
         {
-            //Console.WriteLine("Enter From Currency:");
-            //string from = Console.ReadLine();
-            //Console.WriteLine("Enter To Currency:");
-            //string to = Console.ReadLine();
-
-
-            var curr_dict = getCurrencyDict();
-            var rate = exchangeRate(curr_dict, from, to);
-            Console.WriteLine($"exchange rate is {rate}");
+            var inputFrom = "USD";
+            var inputTo = "EUR";
+            Console.WriteLine($"Task_8: \ninput: from: {inputFrom}, to: {inputTo}\noutput: {ExchangeRate(inputFrom, inputTo)}\n");
+        }
+        public static double ExchangeRate(string from, string to)
+        {
+            var curr_dict = GetCurrencyDict();
+            var rate = ExchangeRate(curr_dict, from, to);
             return rate;
         }
-        public static Dictionary<string, double> getCurrencyDict()
+        public static Dictionary<string, double> GetCurrencyDict()
         {
             string url = "http://www.nbg.ge/rss.php";
             XmlReader reader = XmlReader.Create(url);
@@ -56,7 +54,7 @@ namespace Exam2
             }
             return curr_dict;
         }
-        static double exchangeRate(Dictionary<string, double> curr_dict, string from, string to)
+        static double ExchangeRate(Dictionary<string, double> curr_dict, string from, string to)
         {
             double fromRate = curr_dict[from];
             double toRate = curr_dict[to];
